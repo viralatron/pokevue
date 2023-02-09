@@ -12,12 +12,6 @@ import SearchBar from "./components/SearchBar.vue";
 
     <div class="wrapper">
       <SearchBar msg="Busque aqui o Pokémon" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/poke/1">Pokemon</RouterLink>
-      </nav>
     </div>
   </header>
 

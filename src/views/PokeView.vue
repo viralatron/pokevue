@@ -1,7 +1,10 @@
+<script setup>
+import Pokemon from "../components/Pokemon.vue";
+</script>
 <template>
-  <div class="poke">
-    <h1>This is an about page</h1>
-  </div>
+  <main>
+    <Pokemon />
+  </main>
 </template>
 
 <style>
