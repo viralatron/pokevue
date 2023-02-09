@@ -3,4 +3,7 @@ import usePokemonStore from "@/stores/pokemon";
 
 const pokemonStore = usePokemonStore();
 </script>
-<template>{{ pokemonStore.pokemon }}</template>
+<template>
+  <div>{{ pokemonStore.pokemon }}</div>
+  <div>{{ pokemonStore.evolution_chain }}</div>
+</template>
