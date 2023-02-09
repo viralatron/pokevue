@@ -1,24 +1,22 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import SearchBar from "./components/SearchBar.vue";
 </script>
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
+    <h1>
+      Poké
+      <img alt="Vue" class="logo" src="@/assets/logo.svg" />
+    </h1>
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <SearchBar msg="Busque aqui o Pokémon" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/poke/1">Pokemon</RouterLink>
       </nav>
     </div>
   </header>
@@ -26,15 +24,19 @@ import HelloWorld from "./components/HelloWorld.vue";
   <RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   line-height: 1.5;
   max-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .logo {
+    height: 2em;
+  }
 }
 
 nav {
