@@ -58,10 +58,7 @@ const pokemonStore = usePokemonStore();
       </section>
     </div>
 
-    <section
-      class="pokemon__evolution"
-      v-if="pokemonStore.evolution_chain.length > 0"
-    >
+    <section class="pokemon__evolution">
       <h2>Evolution Chart</h2>
       <div v-for="link in pokemonStore.evolution_chain" class="list">
         <EvolutionLink :link="link" />

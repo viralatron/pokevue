@@ -26,10 +26,10 @@ export const findPokeSpecies = async (poke) => {
 export const findEvolutions = async (url) => {
   return await axios
     .get(url)
-    .then((res) => {
+    .then(async (res) => {
       const { chain } = res.data;
       let arr = [];
-      sortEvos([chain], arr);
+      await sortEvos([chain], arr);
       return arr;
     })
     .catch((err) => {

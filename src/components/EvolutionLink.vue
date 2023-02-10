@@ -13,7 +13,7 @@ export default {
 </script>
 <template>
   <section class="list__link">
-    <h3>No {{ link.pokemon.id }} - {{ link.pokemon.name }}</h3>
+    <h3>No {{ link.id }} - {{ link.name }}</h3>
     <figure class="pokemon__images">
       <img :src="link.sprites.front_default" alt="front view" />
       <figcaption>front view</figcaption>
