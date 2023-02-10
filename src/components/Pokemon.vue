@@ -5,6 +5,8 @@ const pokemonStore = usePokemonStore();
 </script>
 <template>
   <div v-if="pokemonStore.success === true" class="pokemon">
+    <div>{{ pokemonStore.evolution_chain }}</div>
+    // cada linha vai haver um ciclo evolutivo
     <figure class="pokemon__images">
       <img
         :src="pokemonStore.pokemon.sprites.front_default"
@@ -28,8 +30,8 @@ const pokemonStore = usePokemonStore();
       </div>
       <div>
         <h3>Types:</h3>
-        <ul>
-          <li v-for="types in pokemonStore.pokemon.types">
+        <ul class="inline">
+          <li v-for="types in pokemonStore.pokemon.types" class="inline-pill">
             {{ types.type.name }}
           </li>
         </ul>
@@ -50,8 +52,8 @@ const pokemonStore = usePokemonStore();
       </div>
       <div>
         <h3>Aquirable Skills:</h3>
-        <ul>
-          <li v-for="moves in pokemonStore.pokemon.moves">
+        <ul class="inline">
+          <li v-for="moves in pokemonStore.pokemon.moves" class="inline-pill">
             {{ moves.move.name }}
           </li>
         </ul>
@@ -61,10 +63,19 @@ const pokemonStore = usePokemonStore();
   <div v-else>
     <h3>{{ pokemonStore.message }}</h3>
   </div>
-  <div>{{ pokemonStore.evolution_chain.evolves_to }}</div>
 </template>
 <style lang="scss">
 .pokemon {
   display: flex;
+  .inline-pill {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background-color: #2c3e50;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    &:not(:last-of-type) {
+      margin-right: 0.5rem;
+    }
+  }
 }
 </style>

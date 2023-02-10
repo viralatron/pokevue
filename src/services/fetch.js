@@ -27,11 +27,40 @@ export const findEvolutions = async (url) => {
   return await axios
     .get(url)
     .then((res) => {
-      //   console.log(res.data);
       const { chain } = res.data;
-      return chain;
+      let arr = [];
+      sortEvos([chain], arr);
+      console.log(arr);
+      return arr;
     })
     .catch((err) => {
       console.log(err);
     });
+};
+
+const getEvoData = async (url) => {
+  return await axios
+    .get(url)
+    .then(async (res) => {
+      const { id } = res.data;
+
+      const poke = await findPoke(id);
+      return poke;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+// (if has evolves to get species and find if evolves to and repeat)
+// digamos que a gamefreak resolva mexer nas regras de evolução
+// e cada pokémon independente do nível de hierarquia possa ter mais de uma evolução...
+const sortEvos = async (chain, array) => {
+  for (const link of chain) {
+    const data = await getEvoData(link.species.url);
+    const { id, name, sprites } = data;
+    array.push({ id, name, sprites, evolves_to: [] });
+
+    if (link.evolves_to?.length > 0)
+      sortEvos(link.evolves_to, array[array.length - 1].evolves_to);
+  }
 };
