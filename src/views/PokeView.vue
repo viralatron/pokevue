@@ -1,5 +1,5 @@
 <script setup>
-import Pokemon from "../components/Pokemon.vue";
+import Pokemon from "@/components/Pokemon.vue";
 </script>
 <template>
   <main>

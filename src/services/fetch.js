@@ -30,7 +30,6 @@ export const findEvolutions = async (url) => {
       const { chain } = res.data;
       let arr = [];
       sortEvos([chain], arr);
-      console.log(arr);
       return arr;
     })
     .catch((err) => {
@@ -51,7 +50,7 @@ const getEvoData = async (url) => {
       console.log(err);
     });
 };
-// (if has evolves to get species and find if evolves to and repeat)
+
 // digamos que a gamefreak resolva mexer nas regras de evolução
 // e cada pokémon independente do nível de hierarquia possa ter mais de uma evolução...
 const sortEvos = async (chain, array) => {
@@ -61,6 +60,6 @@ const sortEvos = async (chain, array) => {
     array.push({ id, name, sprites, evolves_to: [] });
 
     if (link.evolves_to?.length > 0)
-      sortEvos(link.evolves_to, array[array.length - 1].evolves_to);
+      await sortEvos(link.evolves_to, array[array.length - 1].evolves_to);
   }
 };
