@@ -2,7 +2,6 @@
 const EvolutionLink = () => import("@/components/EvolutionLink.vue");
 import usePokemonStore from "@/stores/pokemon";
 
-const pokemonStore = usePokemonStore();
 export default {
   props: ["link"],
   computed: {
