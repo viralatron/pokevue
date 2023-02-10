@@ -6,7 +6,7 @@ const pokemonStore = usePokemonStore();
 </script>
 <template>
   <div v-if="pokemonStore.success === true" class="pokemon">
-    <div class="pokemon__info">
+    <section class="pokemon__info">
       <figure class="pokemon__images">
         <img
           :src="pokemonStore.pokemon.sprites.front_default"
@@ -56,13 +56,15 @@ const pokemonStore = usePokemonStore();
           </ul>
         </div>
       </section>
-    </div>
+    </section>
 
     <section class="pokemon__evolution">
       <h2>Evolution Chart</h2>
-      <div v-for="link in pokemonStore.evolution_chain" class="list">
-        <EvolutionLink :link="link" />
-      </div>
+      <ul v-for="link in pokemonStore.evolution_chain" class="list">
+        <li class="list__link">
+          <EvolutionLink :link="link" />
+        </li>
+      </ul>
     </section>
   </div>
   <div v-else>
@@ -84,6 +86,24 @@ const pokemonStore = usePokemonStore();
     margin-bottom: 0.5rem;
     &:not(:last-of-type) {
       margin-right: 0.5rem;
+    }
+  }
+  .list {
+    display: flex;
+    border: 1px solid red;
+    padding: 2rem;
+    border-radius: 30px;
+    flex-direction: column;
+    align-items: center;
+    &__link {
+      display: flex;
+      .link__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem;
+      }
     }
   }
 }
