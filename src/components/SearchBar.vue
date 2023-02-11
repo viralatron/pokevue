@@ -27,7 +27,7 @@ export default {
       <input
         v-model="pokemon"
         type="text"
-        placeholder="insira o nome ou Nº do pokemon"
+        placeholder="Name or Pokemon number"
       /><button type="submit" @click="search(pokemon)">Search</button>
     </form>
   </div>
