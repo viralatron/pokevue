@@ -25,7 +25,7 @@
   justify-content: space-evenly;
   position: absolute;
   bottom: 1rem;
-  width: 100%;
+  width: calc(100% - 2rem);
   p {
     font-size: 0.8rem;
     font-family: monospace;

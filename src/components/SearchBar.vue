@@ -26,8 +26,9 @@ export default {
     >
       <input
         v-model="pokemon"
+        type="text"
         placeholder="insira o nome ou Nº do pokemon"
-      /><button type="submit" @click="search(pokemon)">Buscar</button>
+      /><button type="submit" @click="search(pokemon)">Search</button>
     </form>
   </div>
 </template>
@@ -53,6 +54,20 @@ h3 {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
+    input[type="text"] {
+      padding: 0.4rem 0.6rem;
+      border: 0px;
+      border-radius: 10px;
+      margin-right: 0.5rem;
+    }
+    button[type="submit"] {
+      padding: 0.4rem 0.6rem;
+      border: 0px;
+      border-radius: 10px;
+      background-color: #41b883;
+      cursor: pointer;
+      font-weight: 600;
+    }
   }
 }
 

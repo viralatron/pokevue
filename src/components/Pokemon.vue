@@ -27,14 +27,14 @@ function upperCase(str) {
             :src="pokemonStore.pokemon.sprites.front_default"
             alt="front view"
           />
-          <figcaption>front view</figcaption>
+          <figcaption>Front View</figcaption>
         </figure>
         <figure class="pokemon__img">
           <img
             :src="pokemonStore.pokemon.sprites.back_default"
             alt="back view"
           />
-          <figcaption>back view</figcaption>
+          <figcaption>Back View</figcaption>
         </figure>
       </section>
 
@@ -173,6 +173,14 @@ function upperCase(str) {
         .dt-button {
           display: flex;
           justify-content: space-between;
+          button {
+            padding: 0.4rem 0.6rem;
+            border: 0px;
+            border-radius: 10px;
+            background-color: #41b883;
+            cursor: pointer;
+            font-weight: 600;
+          }
         }
       }
     }
@@ -184,6 +192,8 @@ function upperCase(str) {
     padding: 0;
     &-moveset {
       position: relative;
+      max-height: 200vw;
+      transition: max-height 0.5s;
       &.hidden {
         max-height: 5rem;
         &::before {
@@ -194,7 +204,7 @@ function upperCase(str) {
             rgba(25, 25, 25, 0) 100%
           );
 
-          height: 30%;
+          height: 0.2rem;
           width: 100%;
           position: absolute;
           bottom: 0;
