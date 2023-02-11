@@ -3,7 +3,12 @@ import { findPokeSpecies, findEvolutions, findPoke } from "../services/fetch";
 
 const usePokemonStore = defineStore("pokemon", {
   state: () => {
-    return { pokemon: {}, evolution_chain: {}, success: false, message: "" };
+    return {
+      pokemon: {},
+      evolution_chain: {},
+      success: false,
+      message: "",
+    };
   },
   actions: {
     set(poke, chain, status, msg) {

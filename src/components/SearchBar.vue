@@ -14,6 +14,7 @@ export default {
     search(pokemon) {
       const pokemonStore = usePokemonStore();
       pokemonStore.search(pokemon);
+      this.$router.push("/pokemon/" + this.pokemon);
     },
   },
 };
