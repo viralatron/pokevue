@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from "vue-router";
 import SearchBar from "@/components/SearchBar.vue";
+import Credits from "@/components/Credits.vue";
 </script>
 
 <template>
@@ -11,17 +12,19 @@ import SearchBar from "@/components/SearchBar.vue";
     </h1>
 
     <div class="wrapper">
-      <SearchBar msg="Busque aqui o Pokémon" />
+      <SearchBar />
     </div>
   </header>
 
   <RouterView />
+  <Credits />
 </template>
 
 <style scoped lang="scss">
 header {
   line-height: 1.5;
   max-height: 100vh;
+  margin: 2rem;
 }
 
 h1 {

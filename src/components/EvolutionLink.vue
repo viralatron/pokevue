@@ -15,13 +15,16 @@ export default {
       const pokemonStore = usePokemonStore();
       pokemonStore.search(pokemon);
       this.$router.push("/pokemon/" + pokemon);
+      window.scrollTo(0, 0);
     },
   },
 };
 </script>
 <template>
   <div class="link__info" @click="search(link.id)">
-    <h3>No {{ link.id }} - {{ link.name }}</h3>
+    <h3>
+      No {{ link.id }} - {{ link.name[0].toUpperCase() + link.name.substr(1) }}
+    </h3>
     <figure class="pokemon__images">
       <img :src="link.sprites.front_default" alt="front view" />
     </figure>

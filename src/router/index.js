@@ -14,7 +14,6 @@ const router = createRouter({
       path: "/pokemon/:pokeid",
       name: "pokemon",
       component: () => import("../views/PokeView.vue"),
-      props: (route) => ({ pokeid: route.params.pokeid }),
       beforeEnter: async (to, from) => {
         const pokemonStore = usePokemonStore();
 

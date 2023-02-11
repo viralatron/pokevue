@@ -2,9 +2,6 @@
 import usePokemonStore from "@/stores/pokemon";
 
 export default {
-  props: {
-    msg: { type: String, required: true },
-  },
   data() {
     return {
       pokemon: "",
@@ -22,16 +19,15 @@ export default {
 
 <template>
   <div class="search">
-    <h2 class="green">{{ msg }}</h2>
-    <h3>(Pode ser tanto o nome quanto o número do pokémon)</h3>
     <form
       v-on:submit.prevent="onSubmit"
       @submit="search(pokemon)"
       class="search__form"
     >
-      <input v-model="pokemon" /><button type="submit" @click="search(pokemon)">
-        Buscar
-      </button>
+      <input
+        v-model="pokemon"
+        placeholder="insira o nome ou Nº do pokemon"
+      /><button type="submit" @click="search(pokemon)">Buscar</button>
     </form>
   </div>
 </template>
@@ -48,6 +44,7 @@ h3 {
 .search {
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
   h2,
   h3 {
     text-align: center;
