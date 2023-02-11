@@ -192,7 +192,7 @@ function upperCase(str) {
     padding: 0;
     &-moveset {
       position: relative;
-      max-height: 200vw;
+      max-height: 10000vw;
       transition: max-height 0.5s;
       &.hidden {
         max-height: 5rem;
