@@ -6,10 +6,12 @@ import Credits from "@/components/Credits.vue";
 
 <template>
   <header>
-    <h1>
-      Poké
-      <img alt="Vue" class="logo" src="@/assets/logo.svg" />
-    </h1>
+    <router-link to="/">
+      <h1>
+        Poké
+        <img alt="Vue" class="logo" src="@/assets/logo.svg" />
+      </h1>
+    </router-link>
 
     <div class="wrapper">
       <SearchBar />
