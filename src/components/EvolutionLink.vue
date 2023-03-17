@@ -25,9 +25,11 @@ export default {
     <h3>
       No {{ link.id }} - {{ link.name[0].toUpperCase() + link.name.substr(1) }}
     </h3>
-    <figure class="pokemon__images">
-      <img :src="link.sprites.front_default" alt="front view" />
-    </figure>
+    <img
+      :src="link.sprites.other['official-artwork'].front_default"
+      alt="front view"
+      class="pokemon__images"
+    />
   </div>
   <ul v-if="hasLink" class="list">
     <li v-for="evolutions in link.evolves_to" class="list__link">
@@ -35,3 +37,35 @@ export default {
     </li>
   </ul>
 </template>
+<style lang="scss">
+.link__info {
+  padding: 0.2rem;
+  width: 12rem;
+  height: 18rem;
+  background-color: white;
+  border-radius: 15px;
+  border: 0.8rem solid white;
+  position: relative;
+  z-index: 1;
+  .pokemon__images {
+    width: 100%;
+    height: auto;
+  }
+  h3 {
+    color: #2c3e50;
+    text-align: center;
+  }
+  &::after {
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-color: v-bind("link.color");
+    filter: opacity(20%);
+    border-radius: 15px;
+  }
+}
+</style>

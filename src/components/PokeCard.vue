@@ -14,6 +14,7 @@ onMounted(async () => {
     <router-link
       :to="{ name: 'pokemon', params: { pokeid: cardData.name } }"
       class="poke-card__data"
+      onclick="window.scrollTo(0, 0)"
     >
       <img :src="cardData.sprite" :alt="cardData.name" class="data__sprite" />
       <p>{{ cardData.name }}</p>
@@ -21,7 +22,6 @@ onMounted(async () => {
       <ul class="data__type">
         <li v-for="types in cardData.types">{{ types.type.name }}</li>
       </ul>
-      <!-- <div class="poke-card__color"></div> -->
     </router-link>
   </li>
 </template>

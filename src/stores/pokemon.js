@@ -35,6 +35,7 @@ const usePokemonStore = defineStore("pokemon", {
           pokeSpecies.evolution_chain.url
         );
         const pokemon = await findPoke(pokeSpecies.id);
+        pokemon.color = pokeSpecies.color.name;
         this.set(pokemon, evolution_chain, true, "", this.list);
       } catch (error) {
         this.set({}, {}, false, "Error searching Pokémon", this.list);
