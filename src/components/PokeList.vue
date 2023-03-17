@@ -32,8 +32,8 @@ useIntersectionObserver(
         :pokemon="pokemon"
         :key="pokemon.name"
       />
+      <span ref="el"></span>
     </ul>
-    <span ref="el"></span>
   </section>
 </template>
 <style lang="scss">
@@ -44,5 +44,6 @@ useIntersectionObserver(
   justify-content: space-evenly;
   padding-left: 0;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 </style>

@@ -9,11 +9,6 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomeView,
-      beforeEnter: async (to, from) => {
-        const pokemonStore = usePokemonStore();
-
-        pokemonStore.listPokemon();
-      },
     },
     {
       path: "/pokemon/:pokeid",
