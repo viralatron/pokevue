@@ -1,6 +1,6 @@
 # pokevue
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicação em Vue usada para acessar a PokéApi e buscar pokémons e suas evoluções.
 
 ## Recommended IDE Setup
 
