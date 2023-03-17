@@ -1,5 +1,35 @@
 import axios from "axios";
 
+export const listPoke = async (url) => {
+  return await axios
+    .get(url)
+    .then((res) => {
+      const { next, previous, results } = res.data;
+      return { next, previous, results };
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const getCardPoke = async (url) => {
+  return await axios
+    .get(url)
+    .then(async (res) => {
+      const { sprites, name, id, species, types } = res.data;
+
+      const color = await getSpeciesColor(species.url);
+      return {
+        sprite: sprites.other["official-artwork"].front_default,
+        name,
+        id,
+        color,
+        types,
+      };
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 export const findPoke = async (poke) => {
   return await axios
     .get(`https://pokeapi.co/api/v2/pokemon/${poke}`)
@@ -13,6 +43,7 @@ export const findPoke = async (poke) => {
     });
 };
 export const findPokeSpecies = async (poke) => {
+  if (!isNaN(poke)) poke = Number(poke);
   return await axios
     .get(`https://pokeapi.co/api/v2/pokemon-species/${poke}`)
     .then(async (res) => {
@@ -50,9 +81,19 @@ const getEvoData = async (url) => {
       console.log(err);
     });
 };
+const getSpeciesColor = async (url) => {
+  return await axios
+    .get(url)
+    .then(async (res) => {
+      const { color } = res.data;
 
-// digamos que a gamefreak resolva mexer nas regras de evolução
-// e cada pokémon independente do nível de hierarquia possa ter mais de uma evolução...
+      return color.name;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 const sortEvos = async (chain, array) => {
   for (const link of chain) {
     const data = await getEvoData(link.species.url);

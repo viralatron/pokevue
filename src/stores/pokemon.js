@@ -1,5 +1,10 @@
 import { defineStore } from "pinia";
-import { findPokeSpecies, findEvolutions, findPoke } from "../services/fetch";
+import {
+  findPokeSpecies,
+  findEvolutions,
+  findPoke,
+  listPoke,
+} from "../services/fetch";
 
 const usePokemonStore = defineStore("pokemon", {
   state: () => {
@@ -8,14 +13,20 @@ const usePokemonStore = defineStore("pokemon", {
       evolution_chain: {},
       success: false,
       message: "",
+      list: {
+        prev: "",
+        next: "",
+        results: [],
+      },
     };
   },
   actions: {
-    set(poke, chain, status, msg) {
+    set(poke, chain, status, msg, list) {
       this.pokemon = poke;
       this.evolution_chain = chain;
       this.success = status;
       this.message = msg;
+      this.list = list;
     },
     async search(poke) {
       try {
@@ -24,9 +35,24 @@ const usePokemonStore = defineStore("pokemon", {
           pokeSpecies.evolution_chain.url
         );
         const pokemon = await findPoke(pokeSpecies.id);
-        this.set(pokemon, evolution_chain, true, "");
+        this.set(pokemon, evolution_chain, true, "", this.list);
       } catch (error) {
-        this.set({}, {}, false, "Erro ao buscar Pokémon");
+        this.set({}, {}, false, "Error searching Pokémon", this.list);
+      }
+    },
+    async listPokemon(url = "https://pokeapi.co/api/v2/pokemon/") {
+      try {
+        const { next, previous, results } = await listPoke(url);
+        const currResults = [...this.list.results];
+        currResults.push(...results);
+        // console.log(currResults, results, this.list.results);
+        this.set({}, [], true, "", {
+          prev: previous,
+          next,
+          results: currResults,
+        });
+      } catch (error) {
+        this.set({}, {}, false, "Error listing Pokémons", {});
       }
     },
   },
