@@ -45,14 +45,14 @@ const usePokemonStore = defineStore("pokemon", {
         const { next, previous, results } = await listPoke(url);
         const currResults = [...this.list.results];
         currResults.push(...results);
-        // console.log(currResults, results, this.list.results);
-        this.set({}, [], true, "", {
+
+        this.list = {
           prev: previous,
           next,
           results: currResults,
-        });
+        };
       } catch (error) {
-        this.set({}, {}, false, "Error listing Pokémons", {});
+        await this.set({}, {}, false, "Error listing Pokémons", {});
       }
     },
   },

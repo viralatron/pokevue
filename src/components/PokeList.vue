@@ -43,5 +43,6 @@ useIntersectionObserver(
   list-style: none;
   justify-content: space-evenly;
   padding-left: 0;
+  margin-top: 3rem;
 }
 </style>

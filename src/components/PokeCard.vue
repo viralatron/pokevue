@@ -11,7 +11,7 @@ onMounted(async () => {
 </script>
 <template>
   <li v-if="cardData" class="poke-card">
-    <a :href="`/pokemon/${cardData.name}`">
+    <router-link :to="{ name: 'pokemon', params: { pokeid: cardData.name } }">
       <div class="poke-card__data">
         <img :src="cardData.sprite" :alt="cardData.name" class="data__sprite" />
         <p>{{ cardData.name }}</p>
@@ -21,7 +21,7 @@ onMounted(async () => {
         </ul>
       </div>
       <div class="poke-card__color"></div>
-    </a>
+    </router-link>
   </li>
 </template>
 <style scoped lang="scss">
