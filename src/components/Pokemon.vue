@@ -4,7 +4,7 @@ import EvolutionLink from "@/components/EvolutionLink.vue";
 import { ref } from "vue";
 
 const pokemonStore = usePokemonStore();
-const tglMoveSet = ref(false);
+const tglMoveSet = ref(true);
 
 function upperCase(str) {
   console.log(showMoveSet);
