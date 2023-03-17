@@ -2,7 +2,7 @@
   <div class="credits">
     <div class="credit__attr">
       <p>
-        <a href="https://github.com/viralatron/pokevue">PokéVue</a> criado por
+        <a href="https://github.com/viralatron/pokevue">PokéVue</a> by
         <a href="https://www.danielamaral.dev.br/" target="_blank"
           >Daniel Amaral</a
         >
@@ -10,9 +10,9 @@
     </div>
     <div class="credit__attr">
       <p>
-        <a href="https://pokeapi.co/">PokéApi</a> por
+        <a href="https://pokeapi.co/">PokéApi</a> by
         <a href="https://github.com/PokeAPI/pokeapi#contributing"
-          >Paul Hallett e cia</a
+          >Paul Hallett e co</a
         >
       </p>
     </div>

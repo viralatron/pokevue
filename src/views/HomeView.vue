@@ -1,10 +1,13 @@
-<script setup></script>
+<script setup>
+import PokeList from "@/components/PokeList.vue";
+</script>
 
 <template>
   <main>
     <div>
-      <h2 class="green">Um sistema de busca de pokémons</h2>
-      <p>Este é um sistema utilizado para ver informações básicas de pokémon</p>
+      <h2 class="green">A pokémon searching application</h2>
+      <p>This is an application to look into pokémon information</p>
+      <PokeList />
     </div>
   </main>
 </template>
